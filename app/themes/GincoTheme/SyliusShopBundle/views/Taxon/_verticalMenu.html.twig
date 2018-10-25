@@ -1,0 +1,32 @@
+{{ sonata_block_render_event('sylius.shop.product.index.before_vertical_menu', {'taxon': taxon}) }}
+
+
+
+            <!-- Sider Bar -->
+
+                <div class="col-md-12 col-sm-12 col-xs-12 sider-bar-category border bottom-margin-default">
+                    <p class="title-siderbar bold">{{ taxon.name }}</p>
+                    <ul class="clear-margin list-siderbar">
+                        {% if taxon.parent is not empty and not taxon.parent.isRoot() %}
+                            <li><a href="{{ path('sylius_shop_product_index', {'slug': taxon.parent.slug, '_locale': taxon.parent.translation.locale}) }}" class="item">
+                                <i class="fa fa-arrow-up"></i> {{ 'sylius.ui.go_level_up'|trans }}
+                            </a></li>
+                        {% endif %}
+                        {% for child in taxon.children %}
+                            <li><a href="{{ path('sylius_shop_product_index', {'slug': child.slug, '_locale': child.translation.locale}) }}" class="item">{{ child.name }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="bottom-margin-default banner-siderbar col-md-12 col-sm-12 col-xs-12 clear-padding clearfix">
+                    <div class="overfollow-hidden banners-effect5 relative center-vertical-image">
+                        <img src="img/banner_siderbar-min.png" alt="Siderbar" />
+                        <a href="#"></a>
+                    </div>
+                </div>
+
+
+
+
+
+{{ sonata_block_render_event('sylius.shop.product.index.after_vertical_menu', {'taxon': taxon}) }}

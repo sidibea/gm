@@ -1,0 +1,30 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{{ sonata_block_render_event('sylius.shop.product.index.before_box', {'product': product}) }}
+<div class=" product-son ">
+    <div class="clearfix image-product relative animate-default">
+        <div class="center-vertical-image">
+            {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+        </div>
+        <ul class="option-product animate-default">
+            <li class="relative"><a href="#"><i class="data-icon data-icon-ecommerce icon-ecommerce-bag"></i></a></li>
+            <li class="relative"><a href="#"><i class="data-icondata-icon-basic icon-basic-heart" aria-hidden="true"></i></a></li>
+            <li class="relative"><a href="#"><i class="data-icon data-icon-basic icon-basic-magnifier" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+    <div class="clearfix ranking">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-half" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+    </div>
+    <p class="title-product clearfix full-width title-hover-black animate-default"><a class="animate-default" href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}">{{ product.name }}</a></p>
+    {% if not product.variants.empty() %}
+        <div class="clearfix price-product"><span>{{ money.calculatePrice(product|sylius_resolve_variant) }}</span></div>
+    {% endif %}
+</div>
+
+
+
+{{ sonata_block_render_event('sylius.shop.product.index.after_box', {'product': product}) }}

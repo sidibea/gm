@@ -1,0 +1,10 @@
+
+<ul class="title-tabs clearfix relative">
+    <li onclick="changeTabsProductDetail(1)" class="title-tabs-product-detail title-tabs-1 border no-border-b active-title-tabs bold uppercase">{{ 'sylius.ui.details'|trans }}</li>
+    {% if product.attributes|length > 0 %}
+        <li onclick="changeTabsProductDetail(2)" class="title-tabs-product-detail title-tabs-2 border no-border-b bold uppercase">{{ 'sylius.ui.attributes'|trans }}</li>
+
+    {% endif %}
+    <li onclick="changeTabsProductDetail(3)" class="title-tabs-product-detail title-tabs-3 border no-border-b bold uppercase">{{ 'sylius.ui.reviews'|trans }} ({{ product.acceptedReviews|length }})</li>
+</ul>
+

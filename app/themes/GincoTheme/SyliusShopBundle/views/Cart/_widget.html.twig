@@ -1,0 +1,44 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.before_widget_content', {'cart': cart}) }}
+
+
+<div class="clearfix cart-website absolute" onclick="showCartBoxDetail()">
+    <img alt="Icon Cart" src="{{ asset('bundles/syliusshop/img/icon_cart.png') }}" />
+    <p class="count-total-shopping absolute"> {{ money.convertAndFormat(cart.itemsTotal) }}</p>
+</div>
+{{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_widget_content', {'cart': cart}) }}
+
+<div class="cart-detail-header border">
+    {% if cart.empty %}
+    {{ 'sylius.ui.your_cart_is_empty'|trans }}.
+    {% else %}
+    <div class="relative">
+        {% for item in cart.items %}
+
+            <div class="product-cart-son clearfix">
+
+                <div class="info-product-cart float-left">
+                    <p class="title-product title-hover-black"><a class="animate-default" href="#">{{ item.product }}</a></p>
+                    <p class="clearfix price-product">{{ money.convertAndFormat(item.unitPrice) }} <span class="total-product-cart-son">(x{{ item.quantity }})</span></p>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="relative border no-border-l no-border-r total-cart-header">
+        <p class="bold clear-margin">Subtotal:</p>
+        <p class=" clear-margin bold">$700</p>
+    </div>
+    <div class="relative btn-cart-header">
+        <a href="{{ path('sylius_shop_cart_summary') }}" class="uppercase bold animate-default">{{ 'sylius.ui.view_and_edit_cart'|trans }}</a>
+        <a href="{{ path('sylius_shop_checkout_start') }}" class="uppercase bold button-hover-red animate-default">{{ 'sylius.ui.checkout'|trans }}</a>
+    </div>
+    {% endif %}
+
+    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_popup_content', {'cart': cart}) }}
+</div>
+<div class="mask-search absolute clearfix" onclick="hiddenBoxSearchMobile()"></div>

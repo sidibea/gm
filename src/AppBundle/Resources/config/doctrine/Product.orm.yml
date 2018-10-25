@@ -1,0 +1,11 @@
+# src/AppBundle/Resources/config/doctrine/Product.orm.yml
+
+AppBundle\Entity\Product:
+    type: entity
+    table: sylius_product
+    manyToOne:
+        brand:
+            targetEntity: Loevgaard\SyliusBrandPlugin\Entity\Brand
+            joinColumn:
+                name: brand_id
+                referencedColumnName: id

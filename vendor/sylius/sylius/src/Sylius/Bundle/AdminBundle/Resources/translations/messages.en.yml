@@ -1,0 +1,108 @@
+sylius:
+    menu:
+        admin:
+            main:
+                catalog:
+                    association_types: Association types
+                    attributes: Attributes
+                    header: Catalog
+                    inventory: Inventory
+                    options: Options
+                    products: Products
+                    taxons: Taxons
+                configuration:
+                    admin_users: Administrators
+                    channels: Channels
+                    countries: Countries
+                    currencies: Currencies
+                    exchange_rates: Exchange rates
+                    header: Configuration
+                    locales: Locales
+                    payment_methods: Payment methods
+                    shipping_categories: Shipping categories
+                    shipping_methods: Shipping methods
+                    tax_categories: Tax categories
+                    tax_rates: Tax rates
+                    zones: Zones
+                marketing:
+                    header: Marketing
+                    product_reviews: Product reviews
+                    promotions: Promotions
+                customers:
+                    customers: Customers
+                    groups: Groups
+                    header: Customer
+                sales:
+                    header: Sales
+                    orders: Orders
+loevgaard_sylius_brand:
+    ui:
+        name: Name
+        slug: Slug
+        brand: Brand
+        brands: Brands
+        edit_brand: Edit brand
+        new_brand: New brand
+        image: Image
+
+    form:
+        brand:
+            images: Images
+        product:
+            brand: Brand
+            select_brand: Select brand...
+
+bitbag_sylius_cms_plugin:
+    ui:
+        blocks: Blocks
+        pages: Pages
+        content_management: Content management
+        cms: Content management
+        enabled: Enabled
+        blocks_header: Blocks
+        blocks_subheader: Manage your blocks
+        pages_header: Pages
+        pages_subheader: Manage your pages
+        products: Products
+        page_related_products: Page related products
+        name: Name
+        slug: Slug
+        meta_keywords: Meta keywords
+        meta_description: Meta description
+        content: Content
+        faq: FAQ
+        code: Code
+        contents: Contents
+        images: Images
+        image: Image
+        link: Link
+        faq_header: FAQ
+        faq_subheader: Manage frequently asked questions
+        frequently_asked_questions: Frequently asked questions
+        question: Question
+        answer: Answer
+        sections: Sections
+        sections_header: Sections
+        sections_subheader: Manage your sections
+        position: Position
+        channels: Channels
+        preview: Preview
+        download: Download
+        name_when_linked: Name when linked
+        description_when_linked: Description when linked
+        media: Media
+        media_header: Media
+        media_subheader: Manage digital assets
+        type: Type
+        file: File
+        alt: Alt
+        description: Description
+        file_provider: File
+        image_provider: Image
+        video_provider: Video
+        read_more: Read more
+        breadcrumb: Breadcrumb
+        import: Import
+        csv_file: CSV file
+        successfully_imported: Data has been imported.
+        form_was_submitted_with_errors: "The form was submitted with following errors:"

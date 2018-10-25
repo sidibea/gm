@@ -1,0 +1,16 @@
+{% if locales|length > 1 %}
+    <li class="relative">
+        <a href="#">{{ active|sylius_locale_name }}</a>
+        <ul>
+            {% for code in locales %}
+                {% if code is not same as(active) %}
+                    <li class="relative"><a href="{{ path('sylius_shop_switch_locale', {'code': code}) }}">{{ code|sylius_locale_name }}</a></li>
+
+                {% endif %}
+            {% endfor %}
+
+        </ul>
+    </li>
+
+
+{% endif %}

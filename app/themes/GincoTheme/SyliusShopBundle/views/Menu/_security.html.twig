@@ -1,0 +1,18 @@
+
+
+<li class="relative">
+    {% if is_granted('ROLE_USER') %}
+        <a href="#">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</a>
+        <ul>
+
+            <li class="relative"><a href="{{ path('sylius_shop_account_dashboard') }}">{{ 'sylius.ui.my_account'|trans }}</a></li>
+            <li class="relative"><a href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a></li>
+            <li class="relative"><a href="#">CN</a></li>
+        </ul>
+    {% else %}
+            <li class="relative"><a href="{{ path('sylius_shop_login') }}" class="item">{{ 'sylius.ui.login'|trans }}</a> </li>
+            <li class="relative"><a href="{{ path('sylius_shop_register') }}" class="item">{{ 'sylius.ui.register'|trans }}</a></li>
+
+    {% endif %}
+
+</li>

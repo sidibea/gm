@@ -1,0 +1,44 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+<div class="relative container-web">
+    <div class="container">
+        <div class="row">
+            {% include '@SyliusShop/Product/Index/_header.html.twig' %}
+            <div class="row">
+            <div class="col-md-3 relative right-padding-default clear-padding" id="slide-bar-category">
+                {% include '@SyliusShop/Product/Index/_sidebar.html.twig' %}
+            </div>
+                <div class="col-md-9 relative clear-padding">
+                    <div class="col-sm-12 col-xs-12 relative overfollow-hidden clear-padding button-show-sidebar">
+                        <p onclick="showSideBar()"><span class="ti-filter"></span> Sidebar</p>
+                    </div>
+                    <div class="banner-top-category-page bottom-margin-default effect-bubba zoom-image-hover overfollow-hidden relative full-width">
+
+                    </div>
+                    <div class="bar-category bottom-margin-default border no-border-r no-border-l no-border-t">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                <p class="title-category-page clear-margin">Category</p>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-8 right-category-bar float-right relative">
+                                {% include '@SyliusShop/Product/Index/_sorting.html.twig' %}
+                                {% include '@SyliusShop/Product/Index/_pagination.html.twig' %}
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    {% include '@SyliusShop/Product/Index/_main.html.twig' %}
+
+
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

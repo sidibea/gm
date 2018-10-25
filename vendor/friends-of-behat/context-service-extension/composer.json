@@ -1,0 +1,34 @@
+{
+    "name": "friends-of-behat/context-service-extension",
+    "description": "Allows to declare and use contexts services in scenario scoped container.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kamil Kokot",
+            "email": "kamil@kokot.me",
+            "homepage": "http://kamil.kokot.me"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+
+        "behat/behat": "^3.1",
+        "symfony/dependency-injection": "^3.3|^4.0"
+    },
+    "require-dev": {
+        "friends-of-behat/cross-container-extension": "^1.0",
+        "friends-of-behat/test-context": "^1.0",
+        "phpspec/phpspec": "^4.0"
+    },
+    "suggest": {
+        "friends-of-behat/cross-container-extension": "^1.0",
+        "ocramius/proxy-manager": "^2.0",
+        "symfony/proxy-manager-bridge": "^3.0"
+    },
+    "autoload": {
+        "psr-4": { "FriendsOfBehat\\ContextServiceExtension\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4" : { "spec\\FriendsOfBehat\\ContextServiceExtension\\": "spec/" }
+    }
+}

@@ -1,0 +1,19 @@
+BitBag\SyliusCmsPlugin\Entity\FrequentlyAskedQuestionTranslation:
+    type: mappedSuperclass
+    table: bitbag_cms_faq_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        question:
+            column: question
+            type: string
+            length: 1500
+            nullable: false
+        answer:
+            column: answer
+            type: text
+            nullable: false

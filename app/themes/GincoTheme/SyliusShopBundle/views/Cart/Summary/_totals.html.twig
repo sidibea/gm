@@ -1,0 +1,36 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+<p class="title-shoping-cart">{{ 'sylius.ui.summary'|trans }}</p>
+{{ sonata_block_render_event('sylius.shop.cart.summary.totals', {'cart': cart}) }}
+
+<div class="full-width relative cart-total bg-gray  clearfix">
+    <div class="relative justify-content bottom-padding-15-default border no-border-t no-border-r no-border-l">
+        <p>{{ 'sylius.ui.tax'|trans }}:</p>
+        <p class="text-black price-shoping-cart">{{ money.convertAndFormat(cart.taxTotal) }}</p>
+    </div>
+    <div class="relative justify-content bottom-padding-15-default border no-border-t no-border-r no-border-l">
+        <p>{{ 'sylius.ui.shipping'|trans }}:</p>
+        <p class="text-black price-shoping-cart">{{ money.convertAndFormat(cart.shippingTotal) }}</p>
+    </div>
+    {% if cart.orderPromotionTotal %}
+        <div class="relative justify-content bottom-padding-15-default border no-border-t no-border-r no-border-l">
+            <p>{{ 'sylius.ui.discount'|trans }}:</p>
+            <p class="text-black price-shoping-cart">{{ money.convertAndFormat(cart.orderPromotionTotal) }}</p>
+        </div>
+    {% endif %}
+
+
+    <div class="relative justify-content top-margin-15-default">
+        <p class="bold">{{ 'sylius.ui.order_total'|trans }}:</p>
+        <p class="text-red price-shoping-cart">{{ money.convertAndFormat(cart.total) }}</p>
+    </div>
+
+    {% if cart.currencyCode is not same as(sylius.currencyCode) %}
+        <div class="relative justify-content top-margin-15-default">
+            <p class="bold">{{ 'sylius.ui.base_currency_order_total'|trans }}:</p>
+            <p class="text-red price-shoping-cart">{{ money.format(cart.total, cart.currencyCode) }}</p>
+        </div>
+
+    {% endif %}
+</div>
+

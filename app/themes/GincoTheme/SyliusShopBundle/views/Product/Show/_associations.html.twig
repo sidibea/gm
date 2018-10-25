@@ -1,0 +1,10 @@
+<div class="col-md-12 col-sm-12 col-xs-12 relative bottom slide-related-product">
+    <p class="bold title-slide-product-bottom">{{ 'sylius.ui.latest_products'|trans }}</p>
+    <div class="button-slide-related" id="btn-slide-1"></div>
+    <div class="owl-theme owl-carousel" data-items="1,2,3">
+        {{ render(url('sylius_shop_partial_product_index_latest', {'count': 4, 'template': '@SyliusShop/Product/_related.html.twig'})) }}
+
+    </div>
+</div>
+
+

@@ -1,0 +1,50 @@
+{% set product = order_item.variant.product %}
+
+{% form_theme form 'SyliusUiBundle:Form:theme.html.twig' %}
+    {{ sonata_block_render_event('sylius.shop.product.show.before_add_to_cart', {'product': product, 'order_item': order_item}) }}
+
+{{ form_start(form, {'action': path('sylius_shop_ajax_cart_add_item', {'productId': product.id}), 'attr': {'id': 'sylius-product-adding-to-cart', 'class': 'ui loadable form', 'novalidate': 'novalidate', 'data-redirect': path(configuration.getRedirectRoute('summary'))}}) }}
+    {{ form_errors(form) }}
+<div class="relative option-product-1 bottom-margin-15-default">
+
+    {% if not product.simple %}
+        {% if product.variantSelectionMethodChoice %}
+            {% include '@SyliusShop/Product/Show/_variants.html.twig' %}
+        {% else %}
+            {% include '@SyliusShop/Product/Show/_options.html.twig' %}
+        {% endif %}
+    {% endif %}
+
+</div>
+<div class="relative option-product-2 clearfix">
+    <div class="option-product-son float-left right-margin-default">
+        <p class="float-left">Qty:</p>
+        {{ form_widget(form.cartItem.quantity, {'attr': {'class': 'left-margin-15-default ', 'placeholder': '' }}) }}
+
+    </div>
+
+    {{ sonata_block_render_event('sylius.shop.product.show.add_to_cart_form', {'product': product, 'order_item': order_item}) }}
+
+</div>
+<div class="relative button-product-list clearfix full-width clear-margin">
+    <ul class="clear-margin top-margin-default clearfix bottom-margin-default">
+        <li class="button-hover-red"><button type="submit" >{{ 'sylius.ui.add_to_cart'|trans }}</button></li>
+
+        <li><a href="#" class="animate-default"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+        <li><a href="#" class="animate-default"><i class="fa fa-signal" aria-hidden="true"></i></a></li>
+        <li><a href="#" class="animate-default"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+
+    </ul>
+    <div class="btn-print clearfix">
+        <a href="javascript:;" class="right-margin-default animate-default title-hover-black" onclick="printWebsite()"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+        <a href="mailto:" class=" animate-default title-hover-black"><i class="fa fa-envelope" aria-hidden="true"></i> Send to a Friend</a>
+    </div>
+</div>
+{{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+
+
+
+
+
+

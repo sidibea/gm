@@ -1,0 +1,31 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius:
+    lightbox:
+        image_album_label: 'Image %1 of %2'
+    ui:
+        item_code: 'Item code'
+        in_stock: 'En stock'
+        no_description: 'No description available for this product'
+    menu:
+        shop:
+            account:
+                address_book: 'Address book'
+                change_password: 'Change password'
+                dashboard: 'Dashboard'
+                header: 'Your account'
+                order_history: 'Order history'
+                personal_information: 'Personal information'
+            ui:
+                home: 'Home'
+                services: 'Services'
+                allcategories: 'All categories'
+                services_description: "Ginco Market Services & Event ! Find the places and events you want !"
+                business: 'Business'
+                business_description: 'Gingo Marketplace advert! List your business advert for free'
+                properties: 'Properties'
+                properties_description: 'Gingo Marketplace Properties! Find the properties for rent or buy.'
+                vehicules: 'Vehicles'
+                vehicules_description: 'Find the car of your choice and the car accessories'
+                buses: 'Buses'

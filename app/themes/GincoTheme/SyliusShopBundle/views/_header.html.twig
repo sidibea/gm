@@ -1,0 +1,162 @@
+<div class="clearfix container-web relative">
+    <div class=" container">
+        {% block top %}
+            <div class="row">
+                <div class=" header-top">
+                    <p class="contact_us_header col-md-4 col-xs-12 col-sm-3 clear-margin">
+                        <img src="{{ asset('bundles/syliusshop/img/icon_phone_top.png') }}" alt="Call us" /> Call us <span class="text-red bold">070-7782-7137</span>
+                    </p>
+                    <div class="clear-padding menu-header-top text-right col-md-8 col-xs-12 col-sm-6">
+                        {{ sonata_block_render_event('sylius.shop.layout.before_security_widget') }}
+                        <ul class="clear-margin">
+                            {{ render(controller('sylius.controller.shop.security_widget:renderAction')) }}
+                            {{ sonata_block_render_event('sylius.shop.layout.after_security_widget') }}
+
+
+
+                            {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
+
+
+                            {{ sonata_block_render_event('sylius.shop.layout.before_currency_switcher') }}
+                            {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+        <div class="row">
+            <div class="clearfix header-content full-width relative">
+                <div class="clearfix icon-menu-bar">
+                    <i class="data-icon data-icon-arrows icon-arrows-hamburger-2 icon-pushmenu js-push-menu" aria-hidden="true"></i>
+                </div>
+                <div class="clearfix logo">
+                    {{ render(path('bitbag_sylius_cms_plugin_shop_media_render', {'code' : 'ginco_loo', 'width' : '230'} )) }}
+                </div>
+                <div class="clearfix search-box relative float-left">
+                    <form method="GET" action="/" class="">
+                        <div class="clearfix category-box relative">
+                            <select name="cate_search">
+                                <option>{{ 'sylius.menu.shop.ui.allcategories'|trans }}</option>
+                                <option>Food</option>
+                                <option>Mobile & Tablet</option>
+                                <option>Electric Appliances</option>
+                                <option>Electronics & Technology</option>
+                                <option>Fashion</option>
+                                <option>Health & Beauty</option>
+                                <option>Mother & Baby</option>
+                                <option>Books & Stationery</option>
+                                <option>Home & Life</option>
+                                <option>Sports & Outdoors</option>
+                                <option>Auto & Moto</option>
+                                <option>Voucher Service</option>
+                            </select>
+                        </div>
+                        <input type="text" name="s" placeholder="Enter keyword here . . .">
+                        <button type="submit" class="animate-default button-hover-red">Search</button>
+                    </form>
+                </div>
+                <div class="clearfix icon-search-mobile absolute">
+                    <i onclick="showBoxSearchMobile()" class="data-icon data-icon-basic icon-basic-magnifier"></i>
+                </div>
+                {{ render(url('sylius_shop_partial_cart_summary', {'template': '@SyliusShop/Cart/_widget.html.twig'})) }}
+
+                <div class="clearfix box-search-mobile">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <a class="menu-vertical hidden-md hidden-lg" onclick="showMenuMobie()">
+                <span class="animate-default"><i class="fa fa-list" aria-hidden="true"></i> {{ 'sylius.menu.shop.ui.allcategories'|trans }}</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="menu-header-v3 hidden-ipx">
+    <div class="container">
+        <div class="row">
+            <!-- Menu Page -->
+            <div class="menu-header full-width">
+                <ul class="clear-margin">
+                    <li onclick="showMenuHomeV3()"><a class="animate-default" href="#"><i class="fa fa-list" aria-hidden="true"></i> all categories</a></li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="{{ path('sylius_shop_homepage') }}">{{ 'sylius.menu.shop.ui.home'|trans }}</a>
+                    </li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="http://services.gincomarket.com">{{ 'sylius.menu.shop.ui.services'|trans }}</a>
+                        <div class="sub-menu mega-menu-v2">
+                            <h5 class="center text-center">{{ 'sylius.menu.shop.ui.services_description'|trans }}</h5>
+                        </div>
+                    </li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="http://business.gincomarket.com">{{ 'sylius.menu.shop.ui.business'|trans }}</a>
+                        <div class="sub-menu mega-menu-v2">
+                            <h5 class="center text-center">{{ 'sylius.menu.shop.ui.business_description'|trans }}</h5>
+                        </div>
+                    </li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="http://proprietes.gincomarket.com">{{ 'sylius.menu.shop.ui.properties'|trans }}</a>
+                        <div class="sub-menu mega-menu-v2">
+                            <h5 class="center text-center">{{ 'sylius.menu.shop.ui.properties_description'|trans }}</h5>
+                        </div>
+                    </li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="http://car.gincomarket.com">{{ 'sylius.menu.shop.ui.vehicules'|trans }}</a>
+                        <div class="sub-menu mega-menu-v2">
+                            <h5 class="center text-center">{{ 'sylius.menu.shop.ui.vehicules_description'|trans }}</h5>
+                        </div>
+                    </li>
+                    <li class="title-hover-red">
+                        <a class="animate-default" href="http://car.gincomarket.com">{{ 'sylius.menu.shop.ui.buses'|trans }}</a>
+                        <div class="sub-menu mega-menu-v2">
+                            <h5 class="center text-center">{{ 'sylius.menu.shop.ui.buses_description'|trans }}</h5>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- End Menu Page -->
+        </div>
+    </div>
+</div>
+
+<div class="header-ontop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="clearfix logo">
+                    <a href="#">
+                        {{ render(path('bitbag_sylius_cms_plugin_shop_media_render', {'code' : 'ginco_logo', 'width' : '230'} )) }}
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="menu-header">
+                    <ul class="main__menu clear-margin">
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.home'|trans }}</a>
+                        </li>
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.services'|trans }}</a>
+                        </li>
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.business'|trans }}</a>
+                        </li>
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.properties'|trans }}</a>
+                        </li>
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.vehicules'|trans }}</a>
+                        </li>
+                        <li class="title-hover-red">
+                            <a class="animate-default" href="#">{{ 'sylius.menu.shop.ui.buses'|trans }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+{% block sheets %} {% endblock %}
+
+{% form_theme form '@SyliusUi/Form/theme.html.twig' %}
+
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+{% set header = 'sylius.ui.your_shopping_cart' %}
+
+{% block title %}{{ parent() }} | {{ header|trans }}{% endblock %}
+
+{% block content %}
+    {% if not cart.empty %}
+
+        <!-- Content Shoping Cart -->
+        <div class="relative container-web">
+            <div class="container">
+                <div class="row relative">
+                    <!-- Content Shoping Cart -->
+                    <div class="col-md-8 col-sm-12 col-xs-12 relative left-content-shoping clear-padding-left">
+                        {% include '@SyliusShop/Cart/Summary/_header.html.twig' %}
+
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.after_content_header', {'cart': cart}) }}
+
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.before_items', {'cart': cart}) }}
+
+                        {% include '@SyliusShop/Cart/Summary/_items.html.twig' %}
+
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.after_items', {'cart': cart}) }}
+
+
+                    </div>
+                    <!-- End Content Shoping Cart -->
+                    <!-- Content Right -->
+                    <div class="col-md-4 col-sm-12 col-xs-12 right-content-shoping relative clear-padding-right">
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.before_totals', {'cart': cart}) }}
+
+                        {% include '@SyliusShop/Cart/Summary/_totals.html.twig' %}
+
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.after_totals', {'cart': cart}) }}
+
+                        {{ sonata_block_render_event('sylius.shop.cart.summary.before_totals', {'cart': cart}) }}
+
+                        {% include '@SyliusShop/Cart/Summary/_checkout.html.twig' %}
+
+                    </div>
+                    <!-- End Content Right -->
+                </div>
+            </div>
+        </div>
+        <!-- End Content Shoping Cart -->
+        <!-- Support -->
+        <div class=" support-box full-width bg-red support_box_v2">
+            <div class="container-web">
+                <div class=" container">
+                    <div class="row">
+                        <div class=" support-box-info relative col-md-3 col-sm-3 col-xs-6">
+                            <img src="img/icon_free_ship_white-min.png" alt="Icon Free Ship" class="absolute" />
+                            <p>free shipping</p>
+                            <p>on order over $500</p>
+                        </div>
+                        <div class=" support-box-info relative col-md-3 col-sm-3 col-xs-6">
+                            <img src="img/icon_support_white-min.png" alt="Icon Supports" class="absolute">
+                            <p>support</p>
+                            <p>life time support 24/7</p>
+                        </div>
+                        <div class=" support-box-info relative col-md-3 col-sm-3 col-xs-6">
+                            <img src="img/icon_patner_white-min.png" alt="Icon partner" class="absolute">
+                            <p>help partner</p>
+                            <p>help all aspects</p>
+                        </div>
+                        <div class=" support-box-info relative col-md-3 col-sm-3 col-xs-6">
+                            <img src="img/icon_phone_table_white-min.png" alt="Icon Phone Tablet" class="absolute">
+                            <p>contact with us</p>
+                            <p>+07 (0) 7782 9137</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        {{ messages.info('sylius.ui.your_cart_is_empty') }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,5 @@
+<ul>
+    {% for taxon in taxons %}
+        <li><a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug, '_locale': taxon.translation.locale}) }}"> <p>{{ taxon.name }}</p></a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,15 @@
+{% if currencies|length > 1 %}
+    <li class="relative">
+        <a href="#">{{ active }}</a>
+        <ul>
+            {% for code in currencies %}
+                {% if code is not same as (active) %}
+                    <li class="relative"><a href="{{ path('sylius_shop_switch_currency', {'code': code}) }}">{{ code }}</a></li>
+
+                {% endif %}
+            {% endfor %}
+
+        </ul>
+    </li>
+
+{% endif %}

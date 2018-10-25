@@ -1,0 +1,35 @@
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+{% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
+
+{{ sonata_block_render_event('sylius.shop.product.index.before_search', {'products': resources.data}) }}
+<div class="row">
+    {{ sonata_block_render_event('sylius.shop.product.index.before_search', {'products': resources.data}) }}
+
+    {% include '@SyliusShop/Product/Index/_search.html.twig' %}
+
+    {{ sonata_block_render_event('sylius.shop.product.index.after_search', {'products': resources.data}) }}
+
+    <div class="row">&nbsp;</div>
+</div>
+<!-- Product Content Category -->
+<div class="row">
+    {{ sonata_block_render_event('sylius.shop.product.index.before_list', {'products': resources.data}) }}
+
+    {% if resources.data|length > 0 %}
+        {% for product in resources.data %}
+            {% include '@SyliusShop/Product/_box2.html.twig' %}
+        {% endfor %}
+
+        {{ sonata_block_render_event('sylius.shop.product.index.before_pagination', {'products': resources.data}) }}
+
+
+        <div class="row">
+            {{ pagination.simple(resources.data) }}
+        </div>
+
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %}
+
+</div>
+
